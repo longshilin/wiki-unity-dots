@@ -7,7 +7,7 @@
 	- [Components](components.md)
 	- [Systems](systems.md)
 
-- [Creating gameplay](creating-gameplay)
+- [Creating gameplay](creating-gameplay.md)
 	- [Transforms](transforms.md)
 	- [Rendering](rendering.md)
 	- [Common patterns](common-patterns.md)
