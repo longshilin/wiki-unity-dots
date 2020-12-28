@@ -20,7 +20,7 @@ jobs:
         uses: jacobtomlinson/gha-find-replace@master
         with:
          find: <!--[\s\S]*?-->
-         replace: ""
+         replace: " "
          include: "docs/*.md"
 
       - name: Deploy
