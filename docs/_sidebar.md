@@ -8,7 +8,10 @@
   - [Components](components.md)
   - [Systems](systems.md)
 
-- 
+- Creating gameplay
+	- [Transforms](transforms.md)
+	- [Rendering](rendering.md)
+	- [Common patterns](common-patterns.md)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODg1NTM0OTczXX0=
+eyJoaXN0b3J5IjpbMTA5MTk4NzRdfQ==
 -->
