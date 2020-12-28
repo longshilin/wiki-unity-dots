@@ -19,8 +19,8 @@ jobs:
       - name: Find and Replace
         uses: jacobtomlinson/gha-find-replace@master
         with:
-         find: (<!--[\s\S]*?-->)
-         replace: " "
+         find: "Pages"
+         replace: "Pagesssss"
          include: "docs/*.md"
 
       - name: Deploy
