@@ -24,7 +24,7 @@ jobs:
          include: "docs/*.md"
       
       - name: echo
-        run: echo docs/changelog.md
+        run: cat docs/changelog.md
 
 #       - name: Deploy
 #         uses: peaceiris/actions-gh-pages@v3
