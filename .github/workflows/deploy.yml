@@ -19,7 +19,7 @@ jobs:
       - name: Find and Replace
         uses: jacobtomlinson/gha-find-replace@master
         with:
-         find: <!--[\s\S]*?-->
+         find: (<!--[\s\S]*?-->)
          replace: " "
          include: "docs/*.md"
 
@@ -28,3 +28,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./docs
+          allow_empty_commit: true
