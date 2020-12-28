@@ -1,26 +1,22 @@
-# https://github.com/peter-evans/docker-compose-actions-workflow
 name: Page Deploy
 on:
   push:
     branches: 
       - master
 jobs:
-  # https://github.com/jacobtomlinson/gha-find-replace
-  Replace:
-   runs-on: ubuntu-latest
-   steps:
-     - uses: actions/checkout@v2
-     - name: Find and Replace
-       uses: jacobtomlinson/gha-find-replace@master
-       with:
-         find: <!--[\s\S]*?-->
-         replace: ""
-         include: "docs/*.md"
   test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        # https://github.com/jacobtomlinson/gha-find-replace
+      - name: Find and Replace
+        uses: jacobtomlinson/gha-find-replace@master
+        with:
+         find: <!--[\s\S]*?-->
+         replace: ""
+         include: "docs/*.md"
       - name: Build the stack
+        # https://github.com/peter-evans/docker-compose-actions-workflow
         run: docker-compose up -d
 #       - name: Test
 #         run: docker run --network container:webapp-frontend appropriate/curl -s --retry 10 --retry-connrefused http://localhost:8020/
