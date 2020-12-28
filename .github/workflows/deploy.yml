@@ -24,8 +24,7 @@ jobs:
          include: "docs/*.md"
       
       - name: echo
-        run: pwd
-             || ls -al docs
+        run: ls -al docs
 
 #       - name: Deploy
 #         uses: peaceiris/actions-gh-pages@v3
