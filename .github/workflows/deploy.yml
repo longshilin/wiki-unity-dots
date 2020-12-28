@@ -21,7 +21,7 @@ jobs:
         with:
          find: "Pages"
          replace: "Pagesssss"
-         include: "docs/*.md"
+         include: "docs/"
       
       - name: echo
         run: cat docs/changelog.md
