@@ -9,26 +9,26 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-#         # https://github.com/peter-evans/docker-compose-actions-workflow  
-#       - name: Build the stack
-#         run: docker-compose up -d
-# #       - name: Test
-# #         run: docker run --network container:webapp-frontend appropriate/curl -s --retry 10 --retry-connrefused http://localhost:8020/
+        # https://github.com/peter-evans/docker-compose-actions-workflow  
+      - name: Build the stack
+        run: docker-compose up -d
+#       - name: Test
+#         run: docker run --network container:webapp-frontend appropriate/curl -s --retry 10 --retry-connrefused http://localhost:8020/
 
 #         # https://github.com/jacobtomlinson/gha-find-replace
       - name: Find and Replace
         uses: jacobtomlinson/gha-find-replace@master
         with:
-         find: "Pages"
-         replace: "Pagesssss"
+         find: <!--[\s\S]*?-->
+         replace: ""
          include: "docs/"
       
-      - name: echo
-        run: cat docs/changelog.md
+#       - name: echo
+#         run: cat docs/changelog.md
 
-#       - name: Deploy
-#         uses: peaceiris/actions-gh-pages@v3
-#         with:
-#           github_token: ${{ secrets.GITHUB_TOKEN }}
-#           publish_dir: ./docs
-#           allow_empty_commit: true
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs
+          allow_empty_commit: true
