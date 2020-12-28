@@ -1,0 +1,17 @@
+name: Page Replace
+on:
+  push:
+    branches: 
+      - gh-pages
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        # https://github.com/jacobtomlinson/gha-find-replace
+      - name: Find and Replace
+        uses: jacobtomlinson/gha-find-replace@master
+        with:
+         find: <!--[\s\S]*?-->
+         replace: ""
+         include: "docs/*.md"
