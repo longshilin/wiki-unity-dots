@@ -5,7 +5,7 @@
 
 实体本质上是一个ID。想到它的最简单方法是作为一个超轻量级的[GameObject](https://docs.unity3d.com/Manual/class-GameObject.html)，默认情况下甚至没有名称。实体ID是稳定的；您可以使用它们来存储对另一个组件或实体的引用。例如，层次结构中的子实体可能需要引用其父实体。
 
-一个[EntityManager的](https://docs.unity3d.com/Packages/com.unity.entities@0.16/api/Unity.Entities.EntityManager.html)管理所有的实体[世界](https://docs.unity3d.com/Packages/com.unity.entities@0.16/api/Unity.Entities.World.html)。EntityManager维护实体列表，并组织与实体相关联的数据以获得最佳性能。
+一个[EntityManager的](https://docs.unity3d.com/Packages/com.unity.entities@0.16/api/Unity.Entities.EntityManager.html)管理一个[世界](https://docs.unity3d.com/Packages/com.unity.entities@0.16/api/Unity.Entities.World.html)里的所有的实体。EntityManager维护实体列表，并组织与实体相关联的数据以获得最佳性能。
 
 尽管实体不具有类型，但是可以按与实体相关联的数据组件的类型对实体组进行分类。创建实体并向其中添加组件时，EntityManager会跟踪现有实体上组件的唯一组合。这种独特的组合称为**原型**。在将组件添加到实体时，EntityManager会创建一个[EntityArchetype](https://docs.unity3d.com/Packages/com.unity.entities@0.16/api/Unity.Entities.EntityArchetype.html)结构。您可以使用现有`EntityArchetype`来创建符合该原型的新实体。您也可以`EntityArchetype`预先创建一个，然后使用它来创建实体。
 
