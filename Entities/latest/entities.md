@@ -3,7 +3,7 @@
 
 实体是实体组件系统体系结构的三个主要元素之一。它们代表游戏或应用程序中的各个“事物”。实体既没有行为也没有数据；相反，它标识哪些数据属于一起。[系统](https://docs.unity3d.com/Packages/com.unity.entities@0.16/manual/ecs_systems.html)提供行为，而[组件](https://docs.unity3d.com/Packages/com.unity.entities@0.16/manual/ecs_components.html)存储数据。
 
-实体本质上是一个ID。想到它的最简单方法是作为一个超轻量级的[GameObject](https://docs.unity3d.com/Manual/class-GameObject.html)，默认情况下甚至没有名称。实体ID稳定；您可以使用它们来存储对另一个组件或实体的引用。例如，层次结构中的子实体可能需要引用其父实体。
+实体本质上是一个ID。想到它的最简单方法是作为一个超轻量级的[GameObject](https://docs.unity3d.com/Manual/class-GameObject.html)，默认情况下甚至没有名称。实体ID是稳定的；您可以使用它们来存储对另一个组件或实体的引用。例如，层次结构中的子实体可能需要引用其父实体。
 
 一个[EntityManager的](https://docs.unity3d.com/Packages/com.unity.entities@0.16/api/Unity.Entities.EntityManager.html)管理所有的实体[世界](https://docs.unity3d.com/Packages/com.unity.entities@0.16/api/Unity.Entities.World.html)。EntityManager维护实体列表，并组织与实体相关联的数据以获得最佳性能。
 
