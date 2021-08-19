@@ -1,8 +1,11 @@
 
 ---
 
-?> Was this guide helpful? Let us know by sending a message to [@Elon](https://twitter.com/yilong0722).
+?> Was this guide helpful? Let us know by sending a message to [@issue](https://github.com/longshilin/wiki-unity-dots/issues/new).
 
 ---
 
 Maintained by [longshilin wiki-template](https://github.com/longshilin/wiki-template/). Proudly published with [Docsify](https://docsify.js.io)
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTE5Mzc5NjE0MzJdfQ==
+-->
