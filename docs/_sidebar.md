@@ -2,11 +2,18 @@
 - [Entities](Entities/_nav.md)
 	- [Entity Component System](Entities/Index.md)
 	- [ECS concepts]
-		- [
+		- [Entities]
+			- [Accessing entity data]
+			- [Using an EntityQuery to query data World]
+		- [Components]
+		- [Systems]
+		- [Sync points]
+		- [Write groups]
+		- [Version N]
 	- [Creating gameplay]
 	- [DOTS package]
 - [...]
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMyNDY0Nzc0LDE1MzI5MjY3NDddfQ==
+eyJoaXN0b3J5IjpbLTI4MjI0MzQ2MiwxNTMyOTI2NzQ3XX0=
 -->
