@@ -2,8 +2,6 @@
   <img alt="GitHub Octocat" src="https://longshilin.com/images/favicon.png" width="40%">
 </p>
 
-- [Entities](Entities/latest/core-ecs.md)
-	- [Entities](Entities/latest/entities.md)
-	- [Components](components.md)
-	- [Systems](systems.md)
+- [DOTS Project Setup](https://docs.unity3d.com/Packages/com.unity.entities@0.17/manual/install_setup.html)
+- [Entities](Entities/Index.md)
 
