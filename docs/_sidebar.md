@@ -9,11 +9,13 @@
 		- [Systems]
 		- [Sync points]
 		- [Write groups]
-		- [Version N]
+		- [Version numbers]
+		- [Job extensions]
+		- [Generic jobs]
 	- [Creating gameplay]
 	- [DOTS package]
 - [...]
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI4MjI0MzQ2MiwxNTMyOTI2NzQ3XX0=
+eyJoaXN0b3J5IjpbLTM0ODcwOTIxOCwxNTMyOTI2NzQ3XX0=
 -->
