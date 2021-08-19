@@ -1,4 +1,2 @@
-- [Entities](1_ECS_concepts/core-ecs.md)
-	- [Entities](Entities/latest/entities.md)
-	- [Components](components.md)
-	- [Systems](systems.md)
+- [core-ecs](1_ECS_concepts/core-ecs.md)
+- [entities](1_ECS_concepts/entities.md)
