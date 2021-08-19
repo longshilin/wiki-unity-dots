@@ -1,4 +1,5 @@
-- [Entity Component System](Entities/index.md)
+- [Entity Component System](Entities/Index.md)
+- [ECS concepts]
 - [core-ecs](Entities/1_ECS_concepts/core-ecs.md)
 - [entities](Entities/1_ECS_concepts/entities.md)
 
