@@ -143,9 +143,23 @@ For example, here’s the typical procedure of a custom  `MyCustomBootstrap.Init
     1.  Optionally add them to one of the default world groups
 4.  Return list of unhandled systems to DefaultWorldInitialization.
 
+>例如，以下是自定义`MyCustomBootstrap.Initialize()`实现的典型过程：
+>
+>1.  创建任何其他世界及其顶级 ComponentSystemGroup。
+>2.  对于系统类型列表中的每个类型：
+    1.  向上遍历 ComponentSystemGroup 层次结构以找到此系统类型的顶级组。
+    2.  如果它是在步骤 1 中创建的组之一，则在该 World 中创建系统并将其添加到带有`group.AddSystemToUpdateList()`.
+    3.  如果不是，则将此类型附加到列表以返回到 DefaultWorldInitialization。
+>3.  在新的顶级组上调用 group.SortSystemUpdateList()。
+    1.  （可选）将它们添加到默认世界组之一
+>4.  将未处理的系统列表返回给 DefaultWorldInitialization。
+
 ##### NOTE
 
 The ECS framework finds your ICustomBootstrap implementation by reflection.
+
+>注意：
+>ECS框架通过反射找到您的ICustomBootstrap实现。
 
 ## Tips and Best Practices
 
