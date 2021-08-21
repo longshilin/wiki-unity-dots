@@ -116,9 +116,19 @@ Note the following restrictions:
 -   Only public fields are reflected and they will have the same name as that specified in the component.
 -   Fields of an Entity type in the IComponentData are reflected as fields of GameObject types in the generated MonoBehaviour. GameObjects or Prefabs you assign to these fields are converted as referenced prefabs.
 
+>请注意以下限制：
+>
+>-   单个 C# 文件中只有一个组件可以有一个生成的创作组件，并且 C# 文件中不能有另一个 MonoBehaviour。
+>-   ECS 只反映公共字段，它们与组件中指定的名称相同。
+>-   ECS 将 IComponentData 中实体类型的字段反映为它生成的 MonoBehaviour 中游戏对象类型的字段。ECS 将您分配给这些字段的游戏对象或预制件转换为引用预制件。
+>-   仅反映公共字段，它们的名称与组件中指定的名称相同。
+>-   IComponentData 中实体类型的字段在生成的 MonoBehaviour 中反映为 GameObject 类型的字段。您分配给这些字段的游戏对象或预制件将转换为引用的预制件。
+
 ### For IBufferElementData
 
 You can also generate authoring components for types that implement  `IBufferElementData`  by adding the  `[GenerateAuthoringComponent]`  attribute:
+
+>您还可以`IBufferElementData`通过添加`[GenerateAuthoringComponent]`属性为实现的类型生成创作组件：
 
 ```
 [GenerateAuthoringComponent]
@@ -137,5 +147,5 @@ Note the following restrictions:
 -   `IBufferElementData`  authoring components cannot be automatically generated for types that contain 2 or more fields.
 -   `IBufferElementData`  authoring components cannot be automatically generated for types that have an explicit layout.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMyNTY1ODg3N119
+eyJoaXN0b3J5IjpbMTExNjcwODc5OV19
 -->
