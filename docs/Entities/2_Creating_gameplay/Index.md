@@ -63,7 +63,11 @@ You can implement an  [IConvertGameObjectToEntity](https://docs.unity3d.com/Pack
 
 The ECS conversion code converts a GameObject if it either has a  [ConvertToEntity](https://docs.unity3d.com/Packages/com.unity.entities@0.17/api/Unity.Entities.ConvertToEntity.html)  MonoBehaviour component, or if it is part of a SubScene. In either case, the conversion systems provided for various DOTS features, such as Unity.Transforms and Unity.Hybrid.Render, process the GameObject or the Scene Asset and any of their child GameObjects.
 
+>如果游戏对象具有[ConvertToEntity](https://docs.unity3d.com/Packages/com.unity.entities@0.17/api/Unity.Entities.ConvertToEntity.html) MonoBehaviour 组件，或者它是 SubScene 的一部分，则ECS 转换代码会转换游戏对象。在任一情况下，为各种 DOTS 功能（例如 Unity.Transforms 和 Unity.Hybrid.Render）提供的转换系统处理游戏对象或场景资产及其任何子游戏对象。
+
 One difference between converting GameObjects with ConvertToEntity and converting with a SubScene is that ECS serializes and saves to disk the entity data it generates from converting a SubScene. You can load or stream this serialized data very quickly at run time. In contrast, ECS always converts GameObjects with ConvertToEntity MonoBehaviours at runtime.
+
+>使用 ConvertToEntity 转换 GameObjects 和使用 SubScene 转换之间的一个区别是 ECS 序列化它从转换 SubScene 生成的实体数据并将其保存到磁盘。您可以在运行时非常快速地加载或流式传输此序列化数据。相比之下，ECS 总是在运行时使用 ConvertToEntity MonoBehaviours 转换游戏对象。
 
 It's best practice to use standard MonoBehaviours to author, and use  `IConvertGameObjectToEntity`  to apply the values of those authoring components to  [IComponentData](https://docs.unity3d.com/Packages/com.unity.entities@0.17/api/Unity.Entities.IComponentData.html)  structs for runtime use. Often, the most convenient data layout to use to author is not the most efficient data layout at runtime.
 
@@ -121,5 +125,5 @@ Note the following restrictions:
 -   `IBufferElementData`  authoring components cannot be automatically generated for types that contain 2 or more fields.
 -   `IBufferElementData`  authoring components cannot be automatically generated for types that have an explicit layout.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA4MjA2NzddfQ==
+eyJoaXN0b3J5IjpbMTQzNjExMjQwNV19
 -->
