@@ -113,7 +113,9 @@ There is currently no way to manually update every system in a given World; inst
 
 To support this use case, a new ICustomBootstrap interface is now available:
 
-> 
+>目前没有办法手动更新给定世界中的每个系统；相反，您可以控制在哪个世界中创建哪些系统，以及应该将它们添加到哪些现有系统组中。因此，自定义 WorldB 可以实例化 SystemX 和 SystemY，将 SystemX 添加到默认 World 的 SimulationSystemGroup，并将 SystemY 添加到默认 World 的 PresentationSystemGroup。这些系统可以像往常一样相对于它们的组兄弟来对自己进行排序，并且将与相应的组一起更新。
+
+>为了支持这个用例，现在提供了一个新的 ICustomBootstrap 接口：
 
 ```
 public interface ICustomBootstrap
@@ -150,7 +152,7 @@ The ECS framework finds your ICustomBootstrap implementation by reflection.
 -   **Use the existing  `EntityCommandBufferSystem`s instead of adding new ones, if possible.**  An  `EntityCommandBufferSystem`  represents a sync point where the main thread waits for worker threads to complete before processing any outstanding  `EntityCommandBuffer`s. Reusing one of the predefined Begin/End systems in each root-level system group is less likely to introduce a new "bubble" into the frame pipeline than creating a new one.
 -   **Avoid putting custom logic in  `ComponentSystemGroup.OnUpdate()`**. Since  `ComponentSystemGroup`  is functionally a component system itself, it may be tempting to add custom processing to its OnUpdate() method, to perform some work, spawn some jobs, etc. We advise against this in general, as it’s not immediately clear from the outside whether the custom logic is executed before or after the group’s members are updated. It’s preferable to keep system groups limited to a grouping mechanism, and to implement the desired logic in a separate component system, explicitly ordered relative to the group.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA5NzQ0NDk1NCwxMjk1NDQ4NTg2LC0yMT
+eyJoaXN0b3J5IjpbLTc5NDM2Nzc0NCwxMjk1NDQ4NTg2LC0yMT
 QwODM5Mzg1LC0xNTU1OTExOTUsMTkxMjM5MDcxMywxNjk2NjAw
 NDIwLDY2NzA0MzAxNiwxNDAyMTE1NTg5LDczMDk5ODExNl19
 -->
