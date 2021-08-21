@@ -39,6 +39,8 @@ The existing system ordering attributes are maintained, with slightly different 
 
 The default World contains a hierarchy of ComponentSystemGroup instances. Only three root-level system groups are added to the Unity player loop (the following list also shows the pre-defined member systems in each group):
 
+>默认世界包含 ComponentSystemGroup 实例的层次结构。Unity 播放器循环中仅添加了三个根级系统组（以下列表还显示了每个组中的预定义成员系统）：
+
 -   InitializationSystemGroup (updated at the end of the  `Initialization`  phase of the player loop)
     -   BeginInitializationEntityCommandBufferSystem
     -   CopyInitialTransformFromGameObjectSystem
