@@ -113,7 +113,9 @@ There is currently no way to manually update every system in a given World; inst
 
 To support this use case, a new ICustomBootstrap interface is now available:
 
-> 
+>目前没有办法手动更新给定世界中的每个系统；相反，您可以控制在哪个世界中创建哪些系统，以及应该将它们添加到哪些现有系统组中。因此，自定义 WorldB 可以实例化 SystemX 和 SystemY，将 SystemX 添加到默认 World 的 SimulationSystemGroup，并将 SystemY 添加到默认 World 的 PresentationSystemGroup。这些系统可以像往常一样相对于它们的组兄弟来对自己进行排序，并且将与相应的组一起更新。
+
+>为了支持这个用例，现在提供了一个新的 ICustomBootstrap 接口：
 
 ```
 public interface ICustomBootstrap
