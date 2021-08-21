@@ -100,6 +100,9 @@ Note that the specific contents of this list is subject to change.
 >Note that the specific contents of this list is subject to change.
 >注意，此列表的具体内容可能会有所更改。
 
+>注：播放器循环的所有阶段。
+>![](https://cdn.jsdelivr.net/gh/longshilin/images/20210821102945.png)
+
 ## Multiple Worlds
 
 You can create multiple Worlds, in addition to (or instead of) the default World described above. The same component system class can be instantiated in more than one World, and each instance can be updated at different rates from different points in the update order.
@@ -109,6 +112,8 @@ You can create multiple Worlds, in addition to (or instead of) the default World
 There is currently no way to manually update every system in a given World; instead, you can control which systems are created in which World, and which of the existing system groups they should be added to. Thus, a custom WorldB could instantiate SystemX and SystemY, adding SystemX to the default World’s SimulationSystemGroup, and adding SystemY to the default World’s PresentationSystemGroup. These systems can order themselves relative to their group siblings as usual, and will be updated along with the corresponding group.
 
 To support this use case, a new ICustomBootstrap interface is now available:
+
+> 
 
 ```
 public interface ICustomBootstrap
