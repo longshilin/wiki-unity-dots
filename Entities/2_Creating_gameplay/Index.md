@@ -43,6 +43,8 @@ Some gameplay features in DOTS require additional packages to support them. For 
 
 You can use the Unity Editor (with the required DOTS packages) to create DOTS-based games. In the Editor, you use GameObjects as normal to author a Scene and the ECS code converts the GameObjects to entities.
 
+>您可以使用 Unity Editor（带有所需的 DOTS 包）来创建基于 DOTS 的游戏。在编辑器中，您可以像往常一样使用游戏对象来创作场景，然后 ECS 代码将游戏对象转换为实体。
+
 The biggest difference when you use DOTS is that instead of writing your own  [MonoBehaviours](https://docs.unity3d.com/ScriptReference/MonoBehaviour.html)  to store instance data and implement custom game logic, you define  [ECS components](https://docs.unity3d.com/Packages/com.unity.entities@0.17/manual/ecs_components.html)  to store the data at runtime, and write  [systems](https://docs.unity3d.com/Packages/com.unity.entities@0.17/manual/ecs_systems.html)  for the custom logic.
 
 ### GameObject conversion
