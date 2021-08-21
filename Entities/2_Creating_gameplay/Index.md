@@ -47,6 +47,8 @@ You can use the Unity Editor (with the required DOTS packages) to create DOTS-ba
 
 The biggest difference when you use DOTS is that instead of writing your own  [MonoBehaviours](https://docs.unity3d.com/ScriptReference/MonoBehaviour.html)  to store instance data and implement custom game logic, you define  [ECS components](https://docs.unity3d.com/Packages/com.unity.entities@0.17/manual/ecs_components.html)  to store the data at runtime, and write  [systems](https://docs.unity3d.com/Packages/com.unity.entities@0.17/manual/ecs_systems.html)  for the custom logic.
 
+>使用 DOTS 的最大区别在于，您无需编写自己的[MonoBehaviours](https://docs.unity3d.com/ScriptReference/MonoBehaviour.html)来存储实例数据和实现自定义游戏逻辑，而是定义[ECS 组件](https://docs.unity3d.com/Packages/com.unity.entities@0.17/manual/ecs_components.html)在运行时存储数据，并为自定义逻辑编写[系统](https://docs.unity3d.com/Packages/com.unity.entities@0.17/manual/ecs_systems.html)。
+
 ### GameObject conversion
 
 During GameObject conversion, various conversion systems handle the MonoBehaviour components that they recognize and then convert them into ECS-based components. For example, one of the the Unity.Transforms conversion systems examines the  `UnityEngine.Transform`  component and adds ECS components, such as  [LocalToWorld](https://docs.unity3d.com/Packages/com.unity.entities@0.17/api/Unity.Transforms.LocalToWorld.html), to replace it.
