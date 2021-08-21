@@ -17,6 +17,8 @@ The ComponentSystemGroup class represents a list of related component systems th
 
 By default, when a ComponentSystemGroup’s  `Update()`  method is called, it calls Update() on each system in its sorted list of member systems. If any member systems are themselves system groups, they will recursively update their own members. The resulting system ordering follows a depth-first traversal of a tree.
 
+>默认情况下，当 ComponentSystemGroup 的`Update()`方法被调用时，它会在其成员系统排序列表中的每个系统上调用 Update()。如果任何成员系统本身就是系统组，它们将递归更新自己的成员。生成的系统排序遵循树的深度优先遍历。
+
 ## System Ordering Attributes
 
 The existing system ordering attributes are maintained, with slightly different semantics and restrictions.
@@ -102,6 +104,6 @@ The ECS framework finds your ICustomBootstrap implementation by reflection.
 -   **Use the existing  `EntityCommandBufferSystem`s instead of adding new ones, if possible.**  An  `EntityCommandBufferSystem`  represents a sync point where the main thread waits for worker threads to complete before processing any outstanding  `EntityCommandBuffer`s. Reusing one of the predefined Begin/End systems in each root-level system group is less likely to introduce a new "bubble" into the frame pipeline than creating a new one.
 -   **Avoid putting custom logic in  `ComponentSystemGroup.OnUpdate()`**. Since  `ComponentSystemGroup`  is functionally a component system itself, it may be tempting to add custom processing to its OnUpdate() method, to perform some work, spawn some jobs, etc. We advise against this in general, as it’s not immediately clear from the outside whether the custom logic is executed before or after the group’s members are updated. It’s preferable to keep system groups limited to a grouping mechanism, and to implement the desired logic in a separate component system, explicitly ordered relative to the group.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU4NDUzMjUwMCwxNDAyMTE1NTg5LDczMD
-k5ODExNl19
+eyJoaXN0b3J5IjpbNjY3MDQzMDE2LDE0MDIxMTU1ODksNzMwOT
+k4MTE2XX0=
 -->
