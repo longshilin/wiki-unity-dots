@@ -70,13 +70,13 @@ The default World contains a hierarchy of ComponentSystemGroup instances. Only t
 
 Note that the specific contents of this list is subject to change.
 
->-   InitializationSystemGroup (在`Initialization`播放器循环阶段结束时更新)
+>-   InitializationSystemGroup (在播放器循环的`Initialization`阶段结束时更新)
     -   BeginInitializationEntityCommandBufferSystem
     -   CopyInitialTransformFromGameObjectSystem
     -   SubSceneLiveLinkSystem
     -   SubSceneStreamingSystem
     -   EndInitializationEntityCommandBufferSystem
->-   SimulationSystemGroup (在`Update`播放器循环阶段结束时更新)
+>-   SimulationSystemGroup (在播放器循环的`Update`阶段结束时更新)
     -   BeginSimulationEntityCommandBufferSystem
     -   TransformSystemGroup
         -   EndFrameParentSystem
@@ -87,7 +87,7 @@ Note that the specific contents of this list is subject to change.
         -   CopyTransformToGameObjectSystem
     -   LateSimulationSystemGroup
     -   EndSimulationEntityCommandBufferSystem
->-   PresentationSystemGroup (在`PreLateUpdate`播放器循环阶段结束时更新)
+>-   PresentationSystemGroup (在播放器循环的`PreLateUpdate`阶段结束时更新)
     -   BeginPresentationEntityCommandBufferSystem
     -   CreateMissingRenderBoundsFromMeshRenderer
     -   RenderingSystemBootstrap
