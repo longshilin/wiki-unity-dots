@@ -17,6 +17,8 @@ The ComponentSystemGroup class represents a list of related component systems th
 
 By default, when a ComponentSystemGroup’s  `Update()`  method is called, it calls Update() on each system in its sorted list of member systems. If any member systems are themselves system groups, they will recursively update their own members. The resulting system ordering follows a depth-first traversal of a tree.
 
+>默认情况下，当 ComponentSystemGroup 的`Update()`方法被调用时，它会在其成员系统排序列表中的每个系统上调用 Update()。如果任何成员系统本身就是系统组，它们将递归更新自己的成员。生成的系统排序遵循树的深度优先遍历。
+
 ## System Ordering Attributes
 
 The existing system ordering attributes are maintained, with slightly different semantics and restrictions.
