@@ -98,11 +98,13 @@ Note that the specific contents of this list is subject to change.
     -   EndPresentationEntityCommandBufferSystem
 
 >Note that the specific contents of this list is subject to change.
->
+>注意，此列表的具体内容可能会有所更改。
 
 ## Multiple Worlds
 
 You can create multiple Worlds, in addition to (or instead of) the default World described above. The same component system class can be instantiated in more than one World, and each instance can be updated at different rates from different points in the update order.
+
+>除了（或代替）上述默认世界之外，您还可以创建多个世界。同一个组件系统类可以在多个 World 中实例化，并且每个实例可以从更新顺序的不同点以不同的速率更新。
 
 There is currently no way to manually update every system in a given World; instead, you can control which systems are created in which World, and which of the existing system groups they should be added to. Thus, a custom WorldB could instantiate SystemX and SystemY, adding SystemX to the default World’s SimulationSystemGroup, and adding SystemY to the default World’s PresentationSystemGroup. These systems can order themselves relative to their group siblings as usual, and will be updated along with the corresponding group.
 
