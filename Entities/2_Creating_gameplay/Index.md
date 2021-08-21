@@ -71,11 +71,17 @@ One difference between converting GameObjects with ConvertToEntity and convertin
 
 It's best practice to use standard MonoBehaviours to author, and use  `IConvertGameObjectToEntity`  to apply the values of those authoring components to  [IComponentData](https://docs.unity3d.com/Packages/com.unity.entities@0.17/api/Unity.Entities.IComponentData.html)  structs for runtime use. Often, the most convenient data layout to use to author is not the most efficient data layout at runtime.
 
+>最佳实践是使用标准 MonoBehaviours 进行创作，并将`IConvertGameObjectToEntity`这些创作组件的值应用于[IComponentData](https://docs.unity3d.com/Packages/com.unity.entities@0.17/api/Unity.Entities.IComponentData.html)结构以供运行时使用。通常，用于创作的最方便的数据布局并不是运行时最有效的数据布局。
+
 You can use  [IConvertGameObjectToEntity](https://docs.unity3d.com/Packages/com.unity.entities@0.17/api/Unity.Entities.IConvertGameObjectToEntity.html)  to customize the conversion of any GameObject in a SubScene, or a GameObject that has a  `ConvertToEntity`  MonoBehaviour, or one that is a child of a GameObject that has a  `ConvertToEntity`  MonoBehaviour.
 
 ##### NOTE
 
 The authoring workflow for DOTS-based applications is an area of active development. The general outlines are in place, but you should anticipate many changes in this area in the near future.
+
+>##### 注意
+>
+>基于 DOTS 的应用程序的创作工作流程是一个活跃的开发领域。大纲已经到位，但您应该预计在不久的将来该领域会发生许多变化。
 
 ## Generated authoring components
 
