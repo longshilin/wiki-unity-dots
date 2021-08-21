@@ -70,6 +70,35 @@ The default World contains a hierarchy of ComponentSystemGroup instances. Only t
 
 Note that the specific contents of this list is subject to change.
 
+>-   InitializationSystemGroup (在`Initialization`播放器循环阶段结束时更新)
+    -   BeginInitializationEntityCommandBufferSystem
+    -   CopyInitialTransformFromGameObjectSystem
+    -   SubSceneLiveLinkSystem
+    -   SubSceneStreamingSystem
+    -   EndInitializationEntityCommandBufferSystem
+>-   SimulationSystemGroup (在`Update`播放器循环阶段结束时更新)
+    -   BeginSimulationEntityCommandBufferSystem
+    -   TransformSystemGroup
+        -   EndFrameParentSystem
+        -   CopyTransformFromGameObjectSystem
+        -   EndFrameTRSToLocalToWorldSystem
+        -   EndFrameTRSToLocalToParentSystem
+        -   EndFrameLocalToParentSystem
+        -   CopyTransformToGameObjectSystem
+    -   LateSimulationSystemGroup
+    -   EndSimulationEntityCommandBufferSystem
+>-   PresentationSystemGroup (updated at the end of the  `PreLateUpdate`  phase of the player loop)
+    -   BeginPresentationEntityCommandBufferSystem
+    -   CreateMissingRenderBoundsFromMeshRenderer
+    -   RenderingSystemBootstrap
+    -   RenderBoundsUpdateSystem
+    -   RenderMeshSystem
+    -   LODGroupSystemV1
+    -   LodRequirementsUpdateSystem
+    -   EndPresentationEntityCommandBufferSystem
+
+>Note that the specific contents of this list is subject to change.
+
 ## Multiple Worlds
 
 You can create multiple Worlds, in addition to (or instead of) the default World described above. The same component system class can be instantiated in more than one World, and each instance can be updated at different rates from different points in the update order.
@@ -113,6 +142,6 @@ The ECS framework finds your ICustomBootstrap implementation by reflection.
 -   **Use the existing  `EntityCommandBufferSystem`s instead of adding new ones, if possible.**  An  `EntityCommandBufferSystem`  represents a sync point where the main thread waits for worker threads to complete before processing any outstanding  `EntityCommandBuffer`s. Reusing one of the predefined Begin/End systems in each root-level system group is less likely to introduce a new "bubble" into the frame pipeline than creating a new one.
 -   **Avoid putting custom logic in  `ComponentSystemGroup.OnUpdate()`**. Since  `ComponentSystemGroup`  is functionally a component system itself, it may be tempting to add custom processing to its OnUpdate() method, to perform some work, spawn some jobs, etc. We advise against this in general, as it’s not immediately clear from the outside whether the custom logic is executed before or after the group’s members are updated. It’s preferable to keep system groups limited to a grouping mechanism, and to implement the desired logic in a separate component system, explicitly ordered relative to the group.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2NDU5MTQxNzgsMTY5NjYwMDQyMCw2Nj
-cwNDMwMTYsMTQwMjExNTU4OSw3MzA5OTgxMTZdfQ==
+eyJoaXN0b3J5IjpbLTE2ODU2NjgxNCwxNjk2NjAwNDIwLDY2Nz
+A0MzAxNiwxNDAyMTE1NTg5LDczMDk5ODExNl19
 -->
