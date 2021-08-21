@@ -87,13 +87,17 @@ The authoring workflow for DOTS-based applications is an area of active developm
 
 Unity can automatically generate authoring components for simple runtime ECS components. When Unity generates an authoring component, you can add an add the script containing the ECS component directly to a GameObject within the Editor. You can then use the  **Inspector**  window to set the initial values for the component.
 
-》
+>Unity 可以为简单的运行时 ECS 组件自动生成创作组件。当 Unity 生成创作组件时，您可以将包含 ECS 组件的脚本直接添加到编辑器中的游戏对象中。然后您可以使用**Inspector**窗口来设置组件的初始值。
 
 ### For IComponentData
 
 Unity can automatically generate authoring components for simple  [IComponentData](https://docs.unity3d.com/Packages/com.unity.entities@0.17/api/Unity.Entities.IComponentData.html)  components. When Unity generates an authoring component, you can add an  `IComponentData`  directly to a GameObject in a Scene within the Unity Editor. You can then use the  **Inspector**  window to set the initial values for the component.
 
+>Unity 可以为简单的[IComponentData](https://docs.unity3d.com/Packages/com.unity.entities@0.17/api/Unity.Entities.IComponentData.html)组件自动生成创作组件。当 Unity 生成创作组件时，您可以`IComponentData`直接向 Unity 编辑器中场景中的游戏对象添加一个。然后您可以使用**Inspector**窗口来设置组件的初始值。
+
 To indicate that you want to generate an authoring component, add the  `[GenerateAuthoringComponent]`  attribute to the IComponentData declaration. Unity automatically generates a MonoBehaviour class that contains the public fields of the component and provides a Conversion method that converts those fields over into runtime component data.
+
+>要指示您要生成创作组件，请将`[GenerateAuthoringComponent]`属性添加到 IComponentData 声明。Unity 自动生成一个 MonoBehaviour 类，该类包含组件的公共字段，并提供将这些字段转换为运行时组件数据的 Conversion 方法。
 
 ```
 [GenerateAuthoringComponent]
