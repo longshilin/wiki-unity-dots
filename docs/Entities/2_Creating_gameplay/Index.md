@@ -87,6 +87,8 @@ The authoring workflow for DOTS-based applications is an area of active developm
 
 Unity can automatically generate authoring components for simple runtime ECS components. When Unity generates an authoring component, you can add an add the script containing the ECS component directly to a GameObject within the Editor. You can then use the  **Inspector**  window to set the initial values for the component.
 
+》
+
 ### For IComponentData
 
 Unity can automatically generate authoring components for simple  [IComponentData](https://docs.unity3d.com/Packages/com.unity.entities@0.17/api/Unity.Entities.IComponentData.html)  components. When Unity generates an authoring component, you can add an  `IComponentData`  directly to a GameObject in a Scene within the Unity Editor. You can then use the  **Inspector**  window to set the initial values for the component.
@@ -131,5 +133,5 @@ Note the following restrictions:
 -   `IBufferElementData`  authoring components cannot be automatically generated for types that contain 2 or more fields.
 -   `IBufferElementData`  authoring components cannot be automatically generated for types that have an explicit layout.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg3MzgwMTFdfQ==
+eyJoaXN0b3J5IjpbLTExMTM5MDQ1NDRdfQ==
 -->
