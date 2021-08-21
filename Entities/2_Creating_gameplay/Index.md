@@ -53,7 +53,11 @@ The biggest difference when you use DOTS is that instead of writing your own  [M
 
 During GameObject conversion, various conversion systems handle the MonoBehaviour components that they recognize and then convert them into ECS-based components. For example, one of the the Unity.Transforms conversion systems examines the  `UnityEngine.Transform`  component and adds ECS components, such as  [LocalToWorld](https://docs.unity3d.com/Packages/com.unity.entities@0.17/api/Unity.Transforms.LocalToWorld.html), to replace it.
 
+>在 GameObject 转换过程中，各种转换系统处理它们识别的 MonoBehaviour 组件，然后将它们转换为基于 ECS 的组件。例如，Unity.Transforms 转换系统之一会检查该`UnityEngine.Transform`组件并添加 ECS 组件（例如[LocalToWorld](https://docs.unity3d.com/Packages/com.unity.entities@0.17/api/Unity.Transforms.LocalToWorld.html)）来替换它。
+
 You can implement an  [IConvertGameObjectToEntity](https://docs.unity3d.com/Packages/com.unity.entities@0.17/api/Unity.Entities.IConvertGameObjectToEntity.html)  MonoBehaviour component to specify custom conversion steps. There often isn't a one-to-one relationship between the number of GameObjects ECS converts and the number of entities it creates; nor between the number of MonoBehaviours on a GameObject and the number of ECS components it adds to an entity.
+
+>您可以实现[IConvertGameObjectToEntity](https://docs.unity3d.com/Packages/com.unity.entities@0.17/api/Unity.Entities.IConvertGameObjectToEntity.html) MonoBehaviour 组件来指定自定义转换步骤。游戏对象 ECS 转换的数量与其创建的实体数量之间通常没有一一对应的关系；也不在游戏对象上的 MonoBehaviour 数量与其添加到实体的 ECS 组件数量之间。
 
 ![](https://docs.unity3d.com/Packages/com.unity.entities@0.17/manual/images/CreatingGameplay.png)
 
