@@ -23,10 +23,17 @@ By default, when a ComponentSystemGroup’s  `Update()`  method is called, it ca
 
 The existing system ordering attributes are maintained, with slightly different semantics and restrictions.
 
+>保留现有的系统排序属性，但语义和限制略有不同。
+
 -   [UpdateInGroup] — specifies a ComponentSystemGroup that this system should be a member of. If this attribute is omitted, the system is automatically added to the default World’s SimulationSystemGroup (see below).
 -   [UpdateBefore] and [UpdateAfter] — order systems relative to other systems. The system type specified for these attributes must be a member of the same group. Ordering across group boundaries is handled at the appropriate deepest group containing both systems:
     -   **Example:**  if SystemA is in GroupA and SystemB is in GroupB, and GroupA and GroupB are both members of GroupC, then the ordering of GroupA and GroupB implicitly determines the relative ordering of SystemA and SystemB; no explicit ordering of the systems is necessary.
 -   [DisableAutoCreation] — prevents the system from being created during default world initialization. You must explicitly create and update the system. However, you can add a system with this tag to a ComponentSystemGroup’s update list, and it will then be automatically updated just like the other systems in that list.
+
+>-   [UpdateInGroup] — 指定该系统应该是其成员的 ComponentSystemGroup。如果省略此属性，系统将自动添加到默认 World 的 SimulationSystemGroup（见下文）。
+>-   [UpdateBefore] 和 [UpdateAfter] — 相对于其他系统的顺序系统。为这些属性指定的系统类型必须是同一组的成员。跨组边界的排序在包含两个系统的适当最深组中处理：
+    -   **示例：**如果SystemA在GroupA中，SystemB在GroupB中，并且GroupA和GroupB都是GroupC的成员，那么GroupA和GroupB的顺序隐含决定了SystemA和SystemB的相对顺序；不需要对系统进行明确排序。
+>-   [DisableAutoCreation] — 防止在默认世界初始化期间创建系统。您必须明确创建和更新系统。但是，您可以将带有此标记的系统添加到 ComponentSystemGroup 的更新列表中，然后它会像该列表中的其他系统一样自动更新。
 
 ## Default System Groups
 
@@ -104,6 +111,6 @@ The ECS framework finds your ICustomBootstrap implementation by reflection.
 -   **Use the existing  `EntityCommandBufferSystem`s instead of adding new ones, if possible.**  An  `EntityCommandBufferSystem`  represents a sync point where the main thread waits for worker threads to complete before processing any outstanding  `EntityCommandBuffer`s. Reusing one of the predefined Begin/End systems in each root-level system group is less likely to introduce a new "bubble" into the frame pipeline than creating a new one.
 -   **Avoid putting custom logic in  `ComponentSystemGroup.OnUpdate()`**. Since  `ComponentSystemGroup`  is functionally a component system itself, it may be tempting to add custom processing to its OnUpdate() method, to perform some work, spawn some jobs, etc. We advise against this in general, as it’s not immediately clear from the outside whether the custom logic is executed before or after the group’s members are updated. It’s preferable to keep system groups limited to a grouping mechanism, and to implement the desired logic in a separate component system, explicitly ordered relative to the group.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjY3MDQzMDE2LDE0MDIxMTU1ODksNzMwOT
-k4MTE2XX0=
+eyJoaXN0b3J5IjpbMTY5NjYwMDQyMCw2NjcwNDMwMTYsMTQwMj
+ExNTU4OSw3MzA5OTgxMTZdfQ==
 -->
