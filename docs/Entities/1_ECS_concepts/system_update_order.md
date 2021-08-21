@@ -98,11 +98,13 @@ Note that the specific contents of this list is subject to change.
     -   EndPresentationEntityCommandBufferSystem
 
 >Note that the specific contents of this list is subject to change.
->
+>注意，此列表的具体内容可能会有所更改。
 
 ## Multiple Worlds
 
 You can create multiple Worlds, in addition to (or instead of) the default World described above. The same component system class can be instantiated in more than one World, and each instance can be updated at different rates from different points in the update order.
+
+>除了（或代替）上述默认世界之外，您还可以创建多个世界。同一个组件系统类可以在多个 World 中实例化，并且每个实例可以从更新顺序的不同点以不同的速率更新。
 
 There is currently no way to manually update every system in a given World; instead, you can control which systems are created in which World, and which of the existing system groups they should be added to. Thus, a custom WorldB could instantiate SystemX and SystemY, adding SystemX to the default World’s SimulationSystemGroup, and adding SystemY to the default World’s PresentationSystemGroup. These systems can order themselves relative to their group siblings as usual, and will be updated along with the corresponding group.
 
@@ -143,7 +145,7 @@ The ECS framework finds your ICustomBootstrap implementation by reflection.
 -   **Use the existing  `EntityCommandBufferSystem`s instead of adding new ones, if possible.**  An  `EntityCommandBufferSystem`  represents a sync point where the main thread waits for worker threads to complete before processing any outstanding  `EntityCommandBuffer`s. Reusing one of the predefined Begin/End systems in each root-level system group is less likely to introduce a new "bubble" into the frame pipeline than creating a new one.
 -   **Avoid putting custom logic in  `ComponentSystemGroup.OnUpdate()`**. Since  `ComponentSystemGroup`  is functionally a component system itself, it may be tempting to add custom processing to its OnUpdate() method, to perform some work, spawn some jobs, etc. We advise against this in general, as it’s not immediately clear from the outside whether the custom logic is executed before or after the group’s members are updated. It’s preferable to keep system groups limited to a grouping mechanism, and to implement the desired logic in a separate component system, explicitly ordered relative to the group.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxNDA4MzkzODUsLTE1NTU5MTE5NSwxOT
-EyMzkwNzEzLDE2OTY2MDA0MjAsNjY3MDQzMDE2LDE0MDIxMTU1
-ODksNzMwOTk4MTE2XX0=
+eyJoaXN0b3J5IjpbMTI5NTQ0ODU4NiwtMjE0MDgzOTM4NSwtMT
+U1NTkxMTk1LDE5MTIzOTA3MTMsMTY5NjYwMDQyMCw2NjcwNDMw
+MTYsMTQwMjExNTU4OSw3MzA5OTgxMTZdfQ==
 -->
