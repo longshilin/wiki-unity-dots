@@ -2,12 +2,12 @@
 
 Use Component System Groups to specify the update order of your systems. You can place a systems in a group using the [UpdateInGroup] attribute on the system’s class declaration. You can then use [UpdateBefore] and [UpdateAfter] attributes to specify the update order within the group.
 
-
 >使用组件系统组指定系统的更新顺序。您可以使用系统类声明中的 [UpdateInGroup] 属性将系统放在一个组中。然后，您可以使用 [UpdateBefore] 和 [UpdateAfter] 属性来指定组内的更新顺序。
->
->ECS 框架创建了一组[默认系统组](https://docs.unity3d.com/Packages/com.unity.entities@0.17/manual/system_update_order.html#default-system-groups)，您可以使用它们在框架的正确阶段更新系统。您可以将一个组嵌套在另一个组中，以便您组中的所有系统在正确的阶段进行更新，然后也根据其组内的顺序进行更新。
+
 
 The ECS framework creates a set of  [default system groups](https://docs.unity3d.com/Packages/com.unity.entities@0.17/manual/system_update_order.html#default-system-groups)  that you can use to update your systems in the correct phase of a frame. You can nest one group inside another so that all systems in your group update in the correct phase and, then, also update according to the order within their group.
+
+>ECS 框架创建了一组[默认系统组](https://docs.unity3d.com/Packages/com.unity.entities@0.17/manual/system_update_order.html#default-system-groups)，您可以使用它们在框架的正确阶段更新系统。您可以将一个组嵌套在另一个组中，以便您组中的所有系统在正确的阶段进行更新，然后也根据其组内的顺序进行更新。
 
 ## Component System Groups
 
