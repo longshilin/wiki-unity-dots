@@ -165,7 +165,7 @@ The ECS framework finds your ICustomBootstrap implementation by reflection.
 
 -   **Use [UpdateInGroup] to specify the system group for each system you write.**  If not specified, the implicit default group is SimulationSystemGroup.
 -   **Use manually-ticked ComponentSystemGroups to update systems elsewhere in the Unity player loop.**  Adding the [DisableAutoCreation] attribute to a component system (or system group) prevents it from being created or added to the default system groups. You can still manually create the system with World.GetOrCreateSystem() and update it by calling manually calling MySystem.Update() from the main thread. This is an easy way to insert systems elsewhere in the Unity player loop (for example, if you have a system that should run later or earlier in the frame).
--   **Use the existing  `EntityCommandBufferSystem`s instead of adding new ones, if possible.**  An  `EntityCommandBufferSystem`  represents a sync point where the main thread waits for worker threads to complete before processing any outstanding  `EntityCommandBuffer`s. Reusing one of the predefined Begin/End systems in each root-level system group is less likely to introduce a new "bubble" into the frame pipeline than creating a new one.
+-   **Use the existing  `EntityCommandBufferSystems` instead of adding new ones, if possible.**  An  `EntityCommandBufferSystem`  represents a sync point where the main thread waits for worker threads to complete before processing any outstanding  `EntityCommandBuffer`s. Reusing one of the predefined Begin/End systems in each root-level system group is less likely to introduce a new "bubble" into the frame pipeline than creating a new one.
 -   **Avoid putting custom logic in  `ComponentSystemGroup.OnUpdate()`**. Since  `ComponentSystemGroup`  is functionally a component system itself, it may be tempting to add custom processing to its OnUpdate() method, to perform some work, spawn some jobs, etc. We advise against this in general, as it’s not immediately clear from the outside whether the custom logic is executed before or after the group’s members are updated. It’s preferable to keep system groups limited to a grouping mechanism, and to implement the desired logic in a separate component system, explicitly ordered relative to the group.
 
 >## 提示和最佳实践
@@ -175,8 +175,8 @@ The ECS framework finds your ICustomBootstrap implementation by reflection.
 >-   **`EntityCommandBufferSystem`如果可能，使用现有的s 而不是添加新的。**An`EntityCommandBufferSystem`代表一个同步点，主线程在处理任何未完成的`EntityCommandBuffer`s之前等待工作线程完成。在每个根级系统组中重用一个预定义的开始/结束系统比创建一个新的“气泡”更不可能在帧管道中引入新的“气泡”。
 >-   **避免将自定义逻辑放入`ComponentSystemGroup.OnUpdate()`**. 由于`ComponentSystemGroup`它本身在功能上是一个组件系统，因此在其 OnUpdate() 方法中添加自定义处理、执行某些工作、生成某些作业等可能很诱人。我们通常建议不要这样做，因为从外部无法立即确定是否自定义逻辑在组成员更新之前或之后执行。最好将系统组限制为分组机制，并在单独的组件系统中实现所需的逻辑，相对于组显式排序。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA4MzQ5MDQ0OSwtNTY3NTcwMzg2LDEyOT
-U0NDg1ODYsLTIxNDA4MzkzODUsLTE1NTU5MTE5NSwxOTEyMzkw
-NzEzLDE2OTY2MDA0MjAsNjY3MDQzMDE2LDE0MDIxMTU1ODksNz
-MwOTk4MTE2XX0=
+eyJoaXN0b3J5IjpbNzE3ODI1NjExLDIwODM0OTA0NDksLTU2Nz
+U3MDM4NiwxMjk1NDQ4NTg2LC0yMTQwODM5Mzg1LC0xNTU1OTEx
+OTUsMTkxMjM5MDcxMywxNjk2NjAwNDIwLDY2NzA0MzAxNiwxND
+AyMTE1NTg5LDczMDk5ODExNl19
 -->
