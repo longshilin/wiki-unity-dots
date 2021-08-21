@@ -130,6 +130,8 @@ public interface ICustomBootstrap
 
 When you implement this interface, the full list of component system types will be passed to the classes  `Initialize()`  method, prior to default world initialization. A custom bootstrapper can iterate through this list and create systems in whatever World it wants. You can return a list of systems from the Initialize() method and they will be created as part of the normal, default world initialization.
 
+>当您实现此接口时，组件系统类型的完整列表将`Initialize()`在默认世界初始化之前传递给 classes方法。自定义引导程序可以遍历此列表并在它想要的任何世界中创建系统。您可以从 Initialize() 方法返回系统列表，它们将作为正常的默认世界初始化的一部分创建。
+
 For example, here’s the typical procedure of a custom  `MyCustomBootstrap.Initialize()`  implementation:
 
 1.  Create any additional Worlds and their top-level ComponentSystemGroups.
