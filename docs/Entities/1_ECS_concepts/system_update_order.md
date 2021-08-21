@@ -13,6 +13,8 @@ The ECS framework creates a set of  [default system groups](https://docs.unity3d
 
 The ComponentSystemGroup class represents a list of related component systems that should be updated together in a specific order. ComponentSystemGroup is derived from ComponentSystemBase, so it acts like a component system in all the important ways -- it can be ordered relative to other systems, has an OnUpdate() method, etc. Most relevantly, this means component system groups can be nested in other component system groups, forming a hierarchy.
 
+>ComponentSystemGroup 类表示应该按特定顺序一起更新的相关组件系统的列表。ComponentSystemGroup 派生自 ComponentSystemBase，所以它在所有重要方面都像一个组件系统——它可以相对于其他系统进行排序，有一个 OnUpdate() 方法等。最相关的是，这意味着组件系统组可以嵌套在其他组件系统组，形成一个层次结构。
+
 By default, when a ComponentSystemGroup’s  `Update()`  method is called, it calls Update() on each system in its sorted list of member systems. If any member systems are themselves system groups, they will recursively update their own members. The resulting system ordering follows a depth-first traversal of a tree.
 
 ## System Ordering Attributes
@@ -100,6 +102,6 @@ The ECS framework finds your ICustomBootstrap implementation by reflection.
 -   **Use the existing  `EntityCommandBufferSystem`s instead of adding new ones, if possible.**  An  `EntityCommandBufferSystem`  represents a sync point where the main thread waits for worker threads to complete before processing any outstanding  `EntityCommandBuffer`s. Reusing one of the predefined Begin/End systems in each root-level system group is less likely to introduce a new "bubble" into the frame pipeline than creating a new one.
 -   **Avoid putting custom logic in  `ComponentSystemGroup.OnUpdate()`**. Since  `ComponentSystemGroup`  is functionally a component system itself, it may be tempting to add custom processing to its OnUpdate() method, to perform some work, spawn some jobs, etc. We advise against this in general, as it’s not immediately clear from the outside whether the custom logic is executed before or after the group’s members are updated. It’s preferable to keep system groups limited to a grouping mechanism, and to implement the desired logic in a separate component system, explicitly ordered relative to the group.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzYxNTY0NTM5LDE0MDIxMTU1ODksNzMwOT
-k4MTE2XX0=
+eyJoaXN0b3J5IjpbLTU4NDUzMjUwMCwxNDAyMTE1NTg5LDczMD
+k5ODExNl19
 -->
