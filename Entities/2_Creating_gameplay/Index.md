@@ -141,8 +141,16 @@ public struct IntBufferElement: IBufferElementData
 
 In this example, a class named  `IntBufferElementAuthoring`  (which inherits from  `MonoBehaviour`) is generated, exposing a public field of  `List<int>`  type. During conversion, this list will be converted into  `DynamicBuffer<IntBufferElement>`, and then added to the converted entity.
 
+>在此示例中，生成了一个名为`IntBufferElementAuthoring`（继承自`MonoBehaviour`）的类，公开了一个公共字段`List<int>`类型。在转换过程中，此列表将转换为`DynamicBuffer<IntBufferElement>`，然后添加到转换后的实体中。
+
 Note the following restrictions:
 
 -   Only one component in a single C# file can have a generated authoring component, and the C# file must not have another MonoBehaviour in it.
 -   `IBufferElementData`  authoring components cannot be automatically generated for types that contain 2 or more fields.
 -   `IBufferElementData`  authoring components cannot be automatically generated for types that have an explicit layout.
+
+>请注意以下限制：
+>
+>-   单个 C# 文件中只有一个组件可以有一个生成的创作组件，并且 C# 文件中不能有另一个 MonoBehaviour。
+>-   `IBufferElementData` 无法为包含 2 个或更多字段的类型自动生成创作组件。
+>-   `IBufferElementData` 无法为具有显式布局的类型自动生成创作组件。
