@@ -70,6 +70,35 @@ The default World contains a hierarchy of ComponentSystemGroup instances. Only t
 
 Note that the specific contents of this list is subject to change.
 
+>-   InitializationSystemGroup (在`Initialization`播放器循环阶段结束时更新)
+    -   BeginInitializationEntityCommandBufferSystem
+    -   CopyInitialTransformFromGameObjectSystem
+    -   SubSceneLiveLinkSystem
+    -   SubSceneStreamingSystem
+    -   EndInitializationEntityCommandBufferSystem
+>-   SimulationSystemGroup (在`Update`播放器循环阶段结束时更新)
+    -   BeginSimulationEntityCommandBufferSystem
+    -   TransformSystemGroup
+        -   EndFrameParentSystem
+        -   CopyTransformFromGameObjectSystem
+        -   EndFrameTRSToLocalToWorldSystem
+        -   EndFrameTRSToLocalToParentSystem
+        -   EndFrameLocalToParentSystem
+        -   CopyTransformToGameObjectSystem
+    -   LateSimulationSystemGroup
+    -   EndSimulationEntityCommandBufferSystem
+>-   PresentationSystemGroup (updated at the end of the  `PreLateUpdate`  phase of the player loop)
+    -   BeginPresentationEntityCommandBufferSystem
+    -   CreateMissingRenderBoundsFromMeshRenderer
+    -   RenderingSystemBootstrap
+    -   RenderBoundsUpdateSystem
+    -   RenderMeshSystem
+    -   LODGroupSystemV1
+    -   LodRequirementsUpdateSystem
+    -   EndPresentationEntityCommandBufferSystem
+
+>Note that the specific contents of this list is subject to change.
+
 ## Multiple Worlds
 
 You can create multiple Worlds, in addition to (or instead of) the default World described above. The same component system class can be instantiated in more than one World, and each instance can be updated at different rates from different points in the update order.
