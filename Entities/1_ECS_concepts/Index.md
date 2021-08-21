@@ -54,7 +54,7 @@ ECS 不会以特定顺序存储块中的实体。当一个实体被创建或更�
 
 ECS 按照[系统的排列顺序](https://docs.unity3d.com/Packages/com.unity.entities@0.17/manual/ecs_core.html#system-organization)在主线程上调度作业。当作业被调度时，ECS 会跟踪哪些作业读取和写入哪些组件。读取组件的作业依赖于写入同一组件的任何先前计划作业，反之亦然。作业调度程序使用作业依赖关系来确定哪些作业可以并行运行，哪些必须按顺序运行。
 
-## 系统组织
+## System organization
 
 ECS 按[World](https://docs.unity3d.com/Packages/com.unity.entities@0.17/api/Unity.Entities.World.html)然后按[组](https://docs.unity3d.com/Packages/com.unity.entities@0.17/api/Unity.Entities.ComponentSystemGroup.html)组织系统。默认情况下，ECS 使用一组预定义的组创建一个默认世界。它找到所有可用的系统，实例化它们，并将它们添加到默认世界中的预定义[模拟组](https://docs.unity3d.com/Packages/com.unity.entities@0.17/api/Unity.Entities.SimulationSystemGroup.html)。
 
