@@ -87,7 +87,7 @@ Note that the specific contents of this list is subject to change.
         -   CopyTransformToGameObjectSystem
     -   LateSimulationSystemGroup
     -   EndSimulationEntityCommandBufferSystem
->-   PresentationSystemGroup (updated at the end of the  `PreLateUpdate`  phase of the player loop)
+>-   PresentationSystemGroup (在`PreLateUpdate`播放器循环阶段结束时更新)
     -   BeginPresentationEntityCommandBufferSystem
     -   CreateMissingRenderBoundsFromMeshRenderer
     -   RenderingSystemBootstrap
