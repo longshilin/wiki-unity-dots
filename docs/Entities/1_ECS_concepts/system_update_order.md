@@ -2,8 +2,8 @@
 
 Use Component System Groups to specify the update order of your systems. You can place a systems in a group using the [UpdateInGroup] attribute on the system’s class declaration. You can then use [UpdateBefore] and [UpdateAfter] attributes to specify the update order within the group.
 >使用组件系统组指定系统的更新顺序。您可以使用系统类声明中的 [UpdateInGroup] 属性将系统放在一个组中。然后，您可以使用 [UpdateBefore] 和 [UpdateAfter] 属性来指定组内的更新顺序。
-
-ECS 框架创建了一组[默认系统组](https://docs.unity3d.com/Packages/com.unity.entities@0.17/manual/system_update_order.html#default-system-groups)，您可以使用它们在框架的正确阶段更新系统。您可以将一个组嵌套在另一个组中，以便您组中的所有系统在正确的阶段进行更新，然后也根据其组内的顺序进行更新。
+>
+>ECS 框架创建了一组[默认系统组](https://docs.unity3d.com/Packages/com.unity.entities@0.17/manual/system_update_order.html#default-system-groups)，您可以使用它们在框架的正确阶段更新系统。您可以将一个组嵌套在另一个组中，以便您组中的所有系统在正确的阶段进行更新，然后也根据其组内的顺序进行更新。
 
 The ECS framework creates a set of  [default system groups](https://docs.unity3d.com/Packages/com.unity.entities@0.17/manual/system_update_order.html#default-system-groups)  that you can use to update your systems in the correct phase of a frame. You can nest one group inside another so that all systems in your group update in the correct phase and, then, also update according to the order within their group.
 
@@ -98,5 +98,5 @@ The ECS framework finds your ICustomBootstrap implementation by reflection.
 -   **Use the existing  `EntityCommandBufferSystem`s instead of adding new ones, if possible.**  An  `EntityCommandBufferSystem`  represents a sync point where the main thread waits for worker threads to complete before processing any outstanding  `EntityCommandBuffer`s. Reusing one of the predefined Begin/End systems in each root-level system group is less likely to introduce a new "bubble" into the frame pipeline than creating a new one.
 -   **Avoid putting custom logic in  `ComponentSystemGroup.OnUpdate()`**. Since  `ComponentSystemGroup`  is functionally a component system itself, it may be tempting to add custom processing to its OnUpdate() method, to perform some work, spawn some jobs, etc. We advise against this in general, as it’s not immediately clear from the outside whether the custom logic is executed before or after the group’s members are updated. It’s preferable to keep system groups limited to a grouping mechanism, and to implement the desired logic in a separate component system, explicitly ordered relative to the group.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0Mzk3NDIxNjcsNzMwOTk4MTE2XX0=
+eyJoaXN0b3J5IjpbMTQwMjExNTU4OSw3MzA5OTgxMTZdfQ==
 -->
