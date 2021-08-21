@@ -16,6 +16,8 @@ The systems include:
 
 Some gameplay features in DOTS require additional packages to support them. For the list of features that require additional packages, see the table below.
 
+>DOTS 中的一些游戏功能需要额外的包来支持它们。有关需要附加包的功能列表，请参阅下表。
+
 | **Feature**                       | **Packages**                                                 |
 | :-------------------------------- | :----------------------------------------------------------- |
 | **DOTS ECS**                      | [com.unity.entities](https://docs.unity3d.com/Packages/com.unity.entities@latest) |
